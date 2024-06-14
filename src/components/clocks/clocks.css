@@ -1,0 +1,166 @@
+.digital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.digital input {
+  height: 40px;
+  width: 150px;
+}
+
+.analog {
+  position: relative;
+  width: 30dvw;
+  height: 30dvw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 60px 0;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3), -3px -3px 7px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.number {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border-radius: 0;
+  font-size: 2rem;
+  color: black;
+}
+
+.active.number {
+  color: red;
+}
+
+.active.dot:not(.number) {
+  background: red;
+}
+
+/* Pointers */
+.pointers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.pointer-hour,
+.pointer-minute,
+.pointer-second {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  height: 6px;
+  transition: transform 0.05s linear; /* Smooth transition */
+}
+
+.pointer-second.no-transition {
+  transition: none; /* Disable transition for one update */
+}
+
+.pointer-hour::after,
+.pointer-minute::after,
+.pointer-second::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%) rotate(-90deg);
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.pointer-hour {
+  width: 20%;
+  background: black;
+  z-index: 101;
+}
+
+.pointer-hour::after {
+  border-top: 5px solid black;
+}
+
+.pointer-minute {
+  width: 30%;
+  background: black;
+  z-index: 100;
+}
+
+.pointer-minute::after {
+  border-top: 5px solid black;
+}
+
+.pointer-second {
+  width: 40%;
+  background: black;
+  z-index: 99;
+}
+
+.pointer-second::after {
+  border-top: 5px solid black;
+}
+
+.pointer-center-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: grey;
+  border-radius: 50%;
+  z-index: 110;
+}
+
+.digits {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 200; /* Ensure this is above the clock hands */
+}
+
+.digit {
+  box-shadow: inset -1px -1px 4px rgba(0, 0, 0, 0.3), inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+  height: 2.8rem;
+  width: 2.2rem;
+  border-radius: 8px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colon {
+  display: inline-block;
+  height: 2.2rem;
+  width: 0.5rem;
+  margin-top: -10px;
+  font-size: 2.8rem;
+  line-height: 2.2rem;
+  text-align: center;
+}

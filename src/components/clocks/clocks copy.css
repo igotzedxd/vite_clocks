@@ -1,0 +1,137 @@
+.digital {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.digital input {
+  height: 40px;
+  width: 150px;
+}
+
+.analog {
+  position: relative;
+  width: 30dvw;
+  height: 30dvw;
+  margin: 60px auto;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+
+.number {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border-radius: 0;
+  font-size: 1.4rem;
+  color: black;
+}
+
+.active.number {
+  color: red;
+}
+
+.active.dot:not(.number) {
+  background: red;
+}
+
+/* Pointers */
+.pointers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  border: 1px dashed lightgray; /* Temporary border for visual aid */
+}
+
+.pointer-hour,
+.pointer-minute,
+.pointer-second {
+  position: absolute;
+  top: 49.5%;
+  left: 50%;
+  transform-origin: left center; /* Centered transform origin */
+  transform: translate(-50%, -55%);
+}
+
+.pointer-hour {
+  height: 1px;
+  width: 20%;
+  background: black;
+  z-index: 101;
+}
+
+.pointer-minute {
+  height: 1px;
+  width: 30%;
+  background: red;
+  z-index: 100;
+}
+
+.pointer-second {
+  height: 1px;
+  width: 40%;
+  background: green;
+  z-index: 99;
+}
+
+.pointer-center-dot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: cyan;
+  border-radius: 50%;
+  z-index: 110;
+}
+
+.pointer {
+  position: absolute;
+  top: 49.5%;
+  left: 50%;
+  transform-origin: left center; /* Centered transform origin */
+  transform: translate(-50%, -50%);
+  height: 1px;
+  width: 100%;
+  background: blue;
+  z-index: 99;
+}
+
+/* Vertical Center Line */
+.center-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: lightgray; /* Light gray vertical line for centering */
+}
+
+/* Horizontal Center Line */
+.horizontal-center-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: lightgray; /* Light gray horizontal line for centering */
+  transform: translateY(-50%);
+}
